@@ -1,0 +1,32 @@
+---
+layout: default
+title: Art & Personal
+---
+
+<div class="page-title">Art &amp; Personal</div>
+
+<p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:560px; line-height:1.7;">Outside of work and research, I make things. This is a collection of art and personal projects — ongoing and completed.</p>
+
+<section>
+  <h2>Gallery</h2>
+  {% assign art_items = site.data.art | where_exp: "item", "item.title != nil" %}
+  {% if art_items.size > 0 %}
+  <div class="gallery-grid">
+    {% for item in art_items %}
+    <div class="gallery-item">
+      {% if item.image %}
+      <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+      {% endif %}
+      <div class="gallery-caption">
+        {{ item.title }}
+        {% if item.description %}<br><span style="color:#999;">{{ item.description }}</span>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="gallery-placeholder">
+    <p>Art and personal work coming soon.</p>
+  </div>
+  {% endif %}
+</section>

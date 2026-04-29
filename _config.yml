@@ -1,0 +1,19 @@
+title: Bryce King
+description: Energy Infrastructure AI Lead · AI Scientist · JHU MS Student
+url: "https://be-king.github.io"
+baseurl: ""
+
+author:
+  name: Bryce King
+  linkedin: https://www.linkedin.com/in/bryce-elizabeth-king/
+
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - README.md
+  - vendor/
