@@ -1,0 +1,27 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="page-title">Blog</div>
+
+<p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:2.5rem; max-width:580px; line-height:1.7;">Writing on energy systems, AI, climate policy, and whatever else I'm thinking about.</p>
+
+{% if site.posts.size > 0 %}
+<div class="post-list">
+  {% for post in site.posts %}
+  <a href="{{ post.url | relative_url }}" class="post-card">
+    <div class="post-card-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    {% if post.excerpt %}<p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>{% endif %}
+    {% if post.tags.size > 0 %}
+    <div class="post-card-tags">
+      {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </a>
+  {% endfor %}
+</div>
+{% else %}
+<p style="color:var(--text-muted); font-size:0.9rem;">Posts coming soon.</p>
+{% endif %}
