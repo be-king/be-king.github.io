@@ -575,6 +575,39 @@ section {
     margin: 2rem 0;
   }
 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.9rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    thead th {
+      background: var(--green);
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .row-label {
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  }
+
   a {
     color: var(--green);
     text-decoration: underline;

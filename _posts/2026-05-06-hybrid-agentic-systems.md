@@ -21,10 +21,30 @@ We want to imagine the future and determine what we need to learn in order to ma
 
 At the end of the day, AI isn't just a human replacement, and it's not just a software replacement. Each brings specific strengths and weaknesses to the table, and in order to create something of value, we need to understand and leverage each of the strengths while countering the weaknesses.
 
-| | **Software** | **Agentic AI** | **Humans** |
-|---|---|---|---|
-| **Strengths** | Deterministic · Interpretable · Good at math execution · Human designed · Traceable · Fast · Cheap to run · Automated | Flexible · Can handle various inputs · Easy for user to direct output · Can reference external knowledge · Can reason in new scenarios · Quick to deploy new features · Automated | Flexible · Domain knowledge · Intuition · Experience · Can reason in new scenarios · Judgement · Common sense · Accountable · Fluid intelligence + complex reasoning |
-| **Weaknesses** | Inflexible · Takes time to build and deploy new features · Requires a software engineer middleman to produce changes · Breaks when it encounters something unanticipated | Non-deterministic · Hallucinates · Cost per token · Spikey intelligence · Requires context · Limited interpretability · Complex accountability · Slow | Slow · Can make errors · Can be wrong · Can be inconsistent · Needs sleep · Gets bored · Very expensive |
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Software</th>
+      <th>Agentic AI</th>
+      <th>Humans</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="row-label">Strengths</td>
+      <td>Deterministic · Interpretable · Good at math execution · Human designed · Traceable · Fast · Cheap to run · Automated</td>
+      <td>Flexible · Can handle various inputs · Easy for user to direct output · Can reference external knowledge · Can reason in new scenarios · Quick to deploy new features · Automated</td>
+      <td>Flexible · Domain knowledge · Intuition · Experience · Can reason in new scenarios · Judgement · Common sense · Accountable · Fluid intelligence + complex reasoning</td>
+    </tr>
+    <tr>
+      <td class="row-label">Weaknesses</td>
+      <td>Inflexible · Takes time to build and deploy new features · Requires a software engineer middleman to produce changes · Breaks when it encounters something unanticipated</td>
+      <td>Non-deterministic · Hallucinates · Cost per token · Spikey intelligence · Requires context · Limited interpretability · Complex accountability · Slow</td>
+      <td>Slow · Can make errors · Can be wrong · Can be inconsistent · Needs sleep · Gets bored · Very expensive</td>
+    </tr>
+  </tbody>
+</table>
 
 Our challenge is to figure out what capabilities should be contained in software (either in the harness for the agent or in MCP tools), what capabilities should be allowed to the agents, and where to put humans in the loop. While we like to think of humans as thoughtful validators who will carefully review every "is it okay if I overwrite this file?" pop-up, realistically, that's a lot to expect. Where and when to put humans in the loop matters and depends as much on their strengths and weaknesses as AI's.
 
@@ -36,12 +56,47 @@ The way we currently think of AI agents is as general purpose reasoning machines
 
 Where that context lives and how the agent accesses it is currently a matter of investigation. It can live in the prompt, a document called a skill, mega-skills we call playbooks, or in an external RAG database.
 
-| | **Prompts** | **Skills** | **Playbooks** | **RAG** |
-|---|---|---|---|---|
-| **Level** | Low | Mid | High (strategic) | Mid |
-| **Purpose** | Execute single action | Complete a task | Decide how to solve a problem | Find relevant context for a query |
-| **Logic** | None | Encapsulated steps, calls tools and sometimes agents | Decision making, branching, calls skills, tools, agents | None |
-| **Reusability** | Low | High (task level) | Medium (context specific) | Low |
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Prompts</th>
+      <th>Skills</th>
+      <th>Playbooks</th>
+      <th>RAG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="row-label">Level</td>
+      <td>Low</td>
+      <td>Mid</td>
+      <td>High (strategic)</td>
+      <td>Mid</td>
+    </tr>
+    <tr>
+      <td class="row-label">Purpose</td>
+      <td>Execute single action</td>
+      <td>Complete a task</td>
+      <td>Decide how to solve a problem</td>
+      <td>Find relevant context for a query</td>
+    </tr>
+    <tr>
+      <td class="row-label">Logic</td>
+      <td>None</td>
+      <td>Encapsulated steps, calls tools and sometimes agents</td>
+      <td>Decision making, branching, calls skills, tools, agents</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td class="row-label">Reusability</td>
+      <td>Low</td>
+      <td>High (task level)</td>
+      <td>Medium (context specific)</td>
+      <td>Low</td>
+    </tr>
+  </tbody>
+</table>
 
 Especially as the amount of context required for a given task or operation grows, the challenge of storing that context in a way that is easily retrievable by the agent when it needs it grows as well.
 
